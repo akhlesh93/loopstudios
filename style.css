@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/********************
+* Custom css
+********************/
+
+section {
+	@apply pb-32;
+}
+
+.container {
+	@apply max-w-6xl mx-auto px-4;
+}
+
+#hero {
+	background-image: url(../images/desktop/image-hero.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@media (max-width: 576px) {
+	#hero {
+		background-image: url(../images/mobile/image-hero.jpg);
+		background-position: center;
+	}
+}
+
+a.menu-link {
+	@apply relative before:content-[''] hover:before:opacity-100;
+}
+
+a.menu-link:before {
+	@apply block w-full absolute -bottom-2 border-b-2 opacity-0 transition;
+}
+
+/**** Mobile trigger *****/
+.mobile-open {
+	@apply overflow-hidden;
+}
+
+@media (max-width: 767px) {
+	.header-nav {
+		@apply hidden py-32 items-center justify-center fixed left-0 right-0 top-0 bottom-0 h-full z-40 bg-black overflow-y-auto;
+	}
+	.mobile-open .header-nav {
+		@apply flex;
+	}
+	.header-nav ul {
+		@apply flex-col items-center space-y-10;
+	}
+	a.menu-link {
+		@apply font-josefin uppercase tracking-widest;
+	}
+}
+
+.mobile-open .mobile-trigger {
+	@apply relative z-50;
+}
+
+.menu-icon {
+	@apply w-full border-b-2 border-white pointer-events-none transition-all;
+}
+
+.open .menu-icon.top {
+	@apply rotate-45 translate-y-3;
+}
+
+.open .menu-icon.middle {
+	@apply opacity-0;
+}
+
+.open .menu-icon.bottom {
+	@apply -rotate-45 -translate-y-2;
+}
+
+.btn {
+	@apply border-2 border-black bg-white hover:bg-black text-black hover:text-white px-10 py-2 font-alata font-bold uppercase tracking-[0.3em];
+}
+
+.item {
+	@apply overflow-hidden relative before:content-[''] hover:before:from-white to-gray-50;
+}
+
+.item:before {
+	@apply block absolute w-full h-full bg-gradient-to-b from-transparent to-black opacity-70 pointer-events-none;
+}
+
+.item img {
+	@apply h-60 md:h-auto object-cover w-full hover:scale-110 transition duration-200;
+}
+
+.item h5 {
+	@apply text-white text-3xl font-josefin absolute left-0 right-0 bottom-8 text-center px-4;
+}
+
+.footer-menu-link {
+	@apply text-white font-alata;
+}
